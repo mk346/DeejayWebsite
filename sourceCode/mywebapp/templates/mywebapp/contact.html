@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-2">
+	{% if name %}
+	  <center>
+	  	<h3>Thanks {{name}}</h3>
+	  	<p>We Received Your Message and Will Respond Shortly</p>
+	  </center>
+      <br/><br><br><br><br/>
+      <br/><br><br><br><br/>
+      <br/><br><br><br><br/>
+      <br/><br><br><br><br/>
+	{% else %}
+    <br/><br><br/>
+     <div class="form-container">
+       <h4>Contact Form</h4>
+       <form class="form-control form-control-sm" method="post" action="{% url 'contact' %}">
+	    {% csrf_token %}
+        <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Your Name</label>
+              <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Your Email</label>
+            <input type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" size="30" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Message Subject</label>
+            <input type="text" name="subject" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Type Your Message Below</label>	
+            <textarea name="message" class="form-control" required></textarea>
+        </div>
+        <center>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-danger">SEND</button>
+        </div>
+        </center>
+      </form>
+      <div class="logos">
+      <a href="https://wa.me/+254727552201" target="_blank" class="whatsapp"><img src="{% static 'mywebapp/images/whatapp.png' %}" width="90"> </a>
+      <a href="mailto:djmasumbuko254@gmail.com" target="_blank" class="whatsapp"><img src="{% static 'mywebapp/images/Gmail.png' %}" width="90"> </a>
+      <a href="http://m.me/caleb.munene.980" target="_blank" class="whatsapp"><img src="{% static 'mywebapp/images/messager2.png' %}" width="90"> </a>
+     </div>
+    </div>
+
+    {% endif %}
+    <br/><br><br><br><br/>
+</div>
+
+
+
+
+
+
+
+
+{% endblock content %}

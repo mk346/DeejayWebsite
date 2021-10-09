@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+ 
+
+<div class="container-1">
+        <h2>DJ Masumbuko is an infinite entertainer for;</h2>
+        <h4>Clubs & Private Parties</h4>
+        <div class="flex-box-container-1">
+            <img src="{% static 'mywebapp/images/club2.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/pic1.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/birthday2.jpg'%}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/club1.jpg' %}" alt="" width="300">
+         </div>
+        <h4>Weddings & Birthday Parties</h4>
+        <div class="flex-box-container-2">
+            <img src="{% static 'mywebapp/images/wedd3.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/birthday1.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/wedd2.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/wedd.png' %}" alt="" width="300">
+        </div> 
+
+        <h4>Radio & Tv</h4>
+        <div class="flex-box-container-3">
+            <img src="{% static 'mywebapp/images/img4.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/img1.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/birthday2.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/club1.jpg' %}" alt="" width="300">
+        </div>
+
+        <h4>Corporate Events & Other Events</h4>
+        <div class="flex-box-container-4">
+            <img src="{% static 'mywebapp/images/pic1.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/birthday1.jpg' %}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/birthday2.jpg'%}" alt="" width="300">
+            <img src="{% static 'mywebapp/images/club1.jpg' %}" alt="" width="300">
+        </div>
+        <br/><br><br/>
+</div>
+<div class="container-b">
+    {% if Name %}
+      <center>
+        <h3>Hello {{Name}}</h3>
+        <p>We Received Your Booking Request and Will Contact You Shortly To Schedule Your Event</p>
+        <p>Please Ensure you Have Provided your Current Phone Number or Email Which We can Reach You with</p>
+      </center>
+      <br/><br><br><br><br/>
+      <br/><br><br><br><br/>
+      <br/><br><br><br><br/>
+      <br/><br><br><br><br/>
+    {% else %}
+<h2 class="title">Book Now</h2>
+  <div class="book-form-container">
+    <form action="" method="post" class="form-control-sm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <center>
+        <div class="col-auto">
+          <button type="submit" class="submit">SEND</button>
+        </div>
+       </center>
+        
+    </form>
+    <br/><br><br/>
+    
+        
+    
+ </div>
+ <br/><br><br/>
+ <br/><br><br/>
+{% endif %}
+</div>
+
+
+{% endblock content %}

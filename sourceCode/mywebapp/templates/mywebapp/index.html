@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% load embed_video_tags %}
+{% block content %}
+
+
+<div class="h-container">
+    <div class="row">
+        <div class="col-1">
+            <a href=""><img src="{% static 'mywebapp/images/logo5.png' %}" width="200"></a> 
+        </div>
+    </div>
+  <hr>
+  <center>
+  <h3><strong>UPDATES</strong></h3>
+  </center>
+ <div class="container-3"> 
+    <div class="sidebar-left">
+        {% for u in updates %}
+        <a href="{{u.update_video}}" target="_blank"><img src="{{u.update_image.url}}" width="540" height="500"></a>
+        <p>{{u.Description}}</p>
+        {% endfor %}
+       
+        
+    </div>
+    <div class="sidebar-right">
+        {% for d in detail %}
+        <a href=""><img src="{{d.det_image.url}}" width="540" height="500"></a>
+        <p>{{d.description}}</p>
+        {% endfor %}
+        
+    </div>
+ </div>  
+    <hr>
+     <h4><strong>POPULAR VIDEOS</strong></h4>
+    <div class="container-4">
+        <div class="flex-box-container-6">
+    	   {% for i in pop_videos %}
+           <a href="{{i.pop_video_url}}" target="_blank"><img src="{{i.video_image.url}}" width=300></a> 
+           {% endfor %}
+        </div>
+        <br/>	
+    </div>
+
+	
+</div>
+
+
+
+{% endblock content %}
